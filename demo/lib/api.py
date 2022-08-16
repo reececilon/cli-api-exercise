@@ -21,3 +21,5 @@ def fetch_contact(id):
 def delete_contact(id):
     requests.delete(URL + f'/{id}')
     
+def fetch_add_contact(contact):
+    req = requests.post(URL, json = contact)
