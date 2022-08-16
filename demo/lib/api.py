@@ -17,3 +17,7 @@ def fetch_contact(id):
     # for data in req.json():
     #     print(data, 1)
     return data
+
+def delete_contact(id):
+    requests.delete(URL + f'/{id}')
+    
