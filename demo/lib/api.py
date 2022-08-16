@@ -18,5 +18,8 @@ def fetch_contact(id):
     #     print(data, 1)
     return data
 
+def delete_contact(id):
+    requests.delete(URL + f'/{id}')
+    
 def fetch_add_contact(contact):
     req = requests.post(URL, json = contact)

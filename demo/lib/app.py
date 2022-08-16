@@ -1,4 +1,4 @@
-from .api import fetch_contacts, fetch_contact, fetch_add_contact
+from .api import fetch_contacts, fetch_contact, fetch_add_contact, delete_contact
 
 class Format():
     ''' ASCI codes for formatting '''
@@ -28,8 +28,9 @@ class CLI():
                 ----------------------MENU-----------------------
                 1. View a list of contacts
                 2. View a specific contact
-                3. Create new contact"
-                4. Exit
+                3. Create new contact
+                4. Delete a contact
+                5. Exit
                 """)
 
                 user_choice = input("\nWhich task would you like to complete: \n")
@@ -91,6 +92,10 @@ class CLI():
                     self.start()
                     break
                 elif user_choice == '4':
+                    destroy_id = input("\nEnter id of contact you want to delete:\n")
+                    delete_contact(destroy_id)
+                    self.start()
+                elif user_choice == '5':
                     print("You chose to exit this app...")
                     exit_program()
                     break
