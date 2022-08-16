@@ -1,4 +1,4 @@
-from .api import fetch_contacts, fetch_contact
+from .api import fetch_contacts, fetch_contact, fetch_add_contact
 
 class Format():
     ''' ASCI codes for formatting '''
@@ -66,13 +66,29 @@ class CLI():
                     for i in range(len(contacts)):
                         if contacts[i]['name'] == name:
                             print(f'''
-                                {contacts[i]['name']}
-                                {contacts[i]['email']}
-                                {contacts[i]['number']}
-                                {contacts[i]['workplace']}
+                            Here are the details for {contacts[i]['name']}:
+                            //////////////////////////////
+                            {contacts[i]['name']}
+                            {contacts[i]['email']}
+                            {contacts[i]['number']}
+                            {contacts[i]['workplace']}
+                            //////////////////////////////
                             ''')
+                    self.start()
                     break
                 elif user_choice == '3':
+                    name = input("\nName of contact you would like to view: \n")
+                    email = input("\nWhat is the new contacts email: \n")
+                    number = input("\nNumber for the new contact: \n")
+                    workplace = input("\nWhare does the new contact work: \n")
+                    contact = {
+                        'name': name,
+                        'email': email,
+                        'numer': number,
+                        'workplace': workplace
+                    }
+                    fetch_add_contact(contact)
+                    self.start()
                     break
                 elif user_choice == '4':
                     print("You chose to exit this app...")

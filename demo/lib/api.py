@@ -17,3 +17,6 @@ def fetch_contact(id):
     # for data in req.json():
     #     print(data, 1)
     return data
+
+def fetch_add_contact(contact):
+    req = requests.post(URL, json = contact)
